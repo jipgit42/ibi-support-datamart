@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<as:Job xmlns:as="urn:tibco:spotfire.dxp.automation">
+  <as:Tasks>
+    <OpenAnalysisFromLibrary xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+      <as:Title>Open Analysis from Library</as:Title>
+      <AnalysisPath>/SupportFolders/User Folders/JaredPosner/Analysis/Case Team Members</AnalysisPath>
+    </OpenAnalysisFromLibrary>
+    <ExportDataToFile xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+      <as:Title>Export Data to File</as:Title>
+      <ExportTableVisualization>false</ExportTableVisualization>
+      <DataTableId>e31e4f4b-7a27-4577-8ad9-adff399b3bf8</DataTableId>
+      <DataTableName>Case Team Members</DataTableName>
+      <VisualizationId>00000000-0000-0000-0000-000000000000</VisualizationId>
+      <ExportFormatName>Spotfire.SpreadsheetDataCsvUtf8Writer</ExportFormatName>
+      <ExportFormatDisplayName>CSV File (Comma-separated, UTF-8): *.csv</ExportFormatDisplayName>
+      <FilePath>\\na1devspijip03.dev.tibco.com\extracts\listen_files\case_team_members.csv</FilePath>
+    </ExportDataToFile>
+    <OpenAnalysisFromLibrary xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+      <as:Title>Open Analysis from Library</as:Title>
+      <AnalysisPath>/SupportFolders/User Folders/JaredPosner/Analysis/Trigger Report</AnalysisPath>
+    </OpenAnalysisFromLibrary>
+    <ExportImage xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+      <as:Title>Export Image</as:Title>
+      <VisualizationId>44d66a23-79b3-4ace-a717-b7932d646574</VisualizationId>
+      <DestinationPath>\\na1devspijip03.dev.tibco.com\extracts\listen_files\case_team_members.csv.trg</DestinationPath>
+      <Width>1536</Width>
+      <Height>757</Height>
+      <MaintainAspectRatioInUi>false</MaintainAspectRatioInUi>
+    </ExportImage>
+    <SendEmail xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+      <as:Title>Send Email</as:Title>
+      <Recipients>
+        <string>jposner@tibco.com</string>
+      </Recipients>
+      <RecipientsCc />
+      <RecipientsBcc />
+      <From>jposner@tibco.com</From>
+      <Subject>Job Completed: case team members</Subject>
+      <Links />
+      <Attachments />
+    </SendEmail>
+  </as:Tasks>
+</as:Job>

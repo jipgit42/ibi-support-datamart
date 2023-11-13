@@ -1,0 +1,18 @@
+FILENAME=GOLD_ACCOUNTS_EXCEL, SUFFIX=DIREXCEL,
+ DATASET=extracts/gold_accounts.xlsx,
+ REMARKS='Synonym for EXCEL Worksheet with parameters: WORKSHEET=GOLD + CS accts, HROWS=1', $
+  SEGMENT=GOLD_ACCOUNTS_EXCEL, SEGTYPE=S0, $
+    FIELDNAME=END_USER_ACCOUNT_NAME, ALIAS='End User Account Name', USAGE=A71V, ACTUAL=A71V,
+      MISSING=ON,
+      TITLE='End User Account Name', $
+    FIELDNAME=TYPE, ALIAS=TYPE, USAGE=A16V, ACTUAL=A16V,
+      MISSING=ON,
+      TITLE='TYPE', $
+    FIELDNAME=GOLD_SUCCESS_MANAGER, ALIAS='Gold Success Manager', USAGE=A23V, ACTUAL=A23V,
+      MISSING=ON,
+      TITLE='Gold Success Manager', $
+    FIELDNAME=GOLD_TECHNICAL_ARCHITECT, ALIAS='Gold Technical Architect', USAGE=A21V, ACTUAL=A21V,
+      MISSING=ON,
+      TITLE='Gold Technical Architect', $
+    FILTER FILTER1=LOWER(TYPE) CONTAINS 'gold';
+      TITLE='extracts/gold_accounts_excel,Filter', MANDATORY=YES,  $

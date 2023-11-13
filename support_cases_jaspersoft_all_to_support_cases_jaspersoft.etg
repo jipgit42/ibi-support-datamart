@@ -1,0 +1,9 @@
+[Version Information]
+Flow Version = 1
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,381,198,429,246,0,0
+DataFlowChildWindow(src:support_cases_jaspersoft_all:t1) = 0,155,197,203,245,0,0
+DataFlowChildWindow(trg:support_cases_jaspersoft:1) = 0,632,203,680,251,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 30,30
+Coord(Item,DEP_MAIN) = 134,30

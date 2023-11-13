@@ -1,0 +1,196 @@
+-*DM_JOB_TYPE=1 
+-*DM_USERID=PTH\srvadmin 
+-*DM_REQ_ACT=I 
+-*DM_SCHDCODE=220000000003000100000000000000000000000000000000000 
+-*DM_SCHDSTRT=202110080300 
+-**Scheduler Type     : Recurring; Continuous Type. 
+-**Schedule Interval  : Every 01 Day(s). 
+-**Scheduler Start    : 2021/10/08 03:00:00 
+-**Log Destinations   : ETLLOG, E-Mail 
+-*DM_LOG=5 
+-*DM_CLIENT_RELEASE_GEN=M728728D_2151 
+-*DM_SERVER_RELEASE_GEN=M728728D_2151 
+ 
+-*************************************************** 
+ 
+-:START_PRC 
+SET PANEL=9999 
+SET MORE=OFF 
+SET 2PARTNAME=ON 
+-RUN 
+ 
+-*[Variables to Control Request] 
+-SET &&CM__TARGET = 'jira_issue'; 
+-SET &&CM__AUTHOR = 'PTH\srvadmin'; 
+-SET &&CM__REQUEST = '&FOCFEXNAME.EVAL'; 
+-SET &&CM__RETURN = 0; 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL; 
+-SET &&KILL_RPC = 'N'; 
+-DEFAULT &DBMSERROR = 10000000 
+-DEFAULT &STARTAT = 0 
+-DEFAULT &STOPAT  = 1000000000 
+ 
+-TYPE  (ICM18122) Request - &FOCFEXNAME (Owner: PTH\srvadmin) submitted. 
+-GOTO :DEP_0; 
+ 
+-:DEP_MAIN 
+-TYPE  (ICM18742) jira_issue type PostgreSQL Existing target 
+ 
+SET CASESTAT=EXTENDED 
+SQL SET UPCASE=OFF; END 
+ 
+-TYPE  (ICM18429) Issuing PREPARE 
+ 
+SQL PREPARE SQLIN FROM 
+SELECT DISTINCT 
+   T1.CASE_NUMBER , 
+   T1.JIRA_ID , 
+   T1.JIRA_ASSIGNEE , 
+   T1.JIRA_TYPE , 
+   T1.JIRA_CREATED_DATE , 
+   T1.JIRA_FIX_VERSION , 
+   T1.JIRA_PRIORITY , 
+   T1.JIRA_RESOLUTION , 
+   T1.JIRA_SEVERITY , 
+   T1.JIRA_UPDATED_DATE , 
+   T1.JIRA_STATUS 
+FROM 
+   jira_issue_with_case_number T1 
+END 
+-RUN 
+-SET &&CM__RETURN = IF &FOCERRNUM EQ 14104 THEN 0 ELSE &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+-IF (&SQLAPT EQ 'APT') GOTO :SKIPHOLD; 
+ 
+-TYPE  (ICM18440) Request will process data via NON-Pass Through (NON-APT) 
+-TYPE  (ICM18451) HOLD file will be created for output file named: SQLIN. 
+ 
+SQL EXECUTE SQLIN; 
+TABLE ON TABLE HOLD AS  
+SQLIN 
+ FORMAT DATREC 
+IF RECORDLIMIT EQ &STOPAT  
+END 
+-RUN 
+-SET &&CM__RETURN = IF &LINES EQ 0 THEN 18708 ELSE &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+-:SKIPHOLD 
+ 
+ 
+CREATE SYNONYM  
+extracts/listen_files/pf_spotfire_jira_issue_with_case_number_to_jira_issue_trans FOR  
+extracts/listen_files/pf_spotfire_jira_issue_with_case_number_to_jira_issue_trans.ftm 
+ FORMAT BINARY 
+ DBMS FIX MODEL SQLIN NOALIAS DROP 
+END 
+-RUN 
+-SET &&CM__RETURN = &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+ENGINE SQLPSTGR SET BULKLOAD OFF 
+-TYPE  (ICM18743) Starting Load 
+ 
+MODIFY FILE jira_issue 
+ FIXFORM FROM SQLIN ALIAS PROPAGATE 
+ GOTO MATCHIT1 
+  
+ CASE MATCHIT1 
+  COMPUTE  
+   CASE_NUMBER/I11 MISSING ON=E01; 
+   JIRA_ID/A48V MISSING ON=E02; 
+   JIRA_ASSIGNEE/A123V MISSING ON=E03; 
+   JIRA_TYPE/A111V MISSING ON=E04; 
+   JIRA_CREATED_DATE/HMDYYS MISSING ON=E05; 
+   JIRA_FIX_VERSION/A210V MISSING ON=E06; 
+   JIRA_PRIORITY/A30V MISSING ON=E07; 
+   JIRA_RESOLUTION/A60V MISSING ON=E08; 
+   JIRA_SEVERITY/A36V MISSING ON=E09; 
+   JIRA_UPDATED_DATE/HMDYYS MISSING ON=E10; 
+   JIRA_STATUS/A39V MISSING ON=E11; 
+  MATCH CASE_NUMBER 
+  MATCH JIRA_ID 
+   ON MATCH UPDATE * SEG JIRA_ISSUE 
+   ON NOMATCH INCLUDE 
+  GOTO TOP 
+ ENDCASE 
+  
+ CASE AT START 
+  START &STARTAT 
+  STOP  &STOPAT  
+  STOP  DBMSERRORS &DBMSERROR 
+  
+  LOG DBMSERR MSG OFF 
+  LOG DUPL    MSG OFF 
+  LOG INVALID MSG OFF 
+  LOG NOMATCH MSG OFF 
+  LOG FORMAT  MSG OFF 
+  LOG ACCEPT  MSG OFF 
+  LOG TRANS   ON extracts/listen_files/pf_spotfire_jira_issue_with_case_number_to_jira_issue_trans MSG OFF 
+  CHECK 1000 
+ ENDCASE 
+ DATA VIA SQLGET 
+END 
+-RUN 
+ 
+-TYPE  (ICM18744) Ending Load 
+-SET &&CM__RETURN = IF &TRANS EQ 0 THEN 18708 ELSE &FOCERRNUM; 
+-SET &&CM__RETURN = IF (&&CM__RETURN EQ 1416) AND (&DBMSERR LT &DBMSERROR) 
+- THEN 0 ELSE &&CM__RETURN; 
+ 
+-:ENDJOB 
+-TYPE  (ICM18040) Return Code = &&CM__RETURN 
+ 
+SET CASESTAT=OFF 
+SQL SET UPCASE=ON; END 
+SET EMGSRV=OFF 
+SQL PURGE SQLIN; 
+END 
+FI SQLIN CLEAR 
+ 
+SET EMGSRV=ON 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+-RUN 
+ 
+-TYPE  (ICM18076) Request: &FOCFEXNAME - finished processing 
+ 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL - &&CM__FOCCPU; 
+-TYPE  (ICM18007) CPU Time : &&CM__FOCCPU 
+ 
+-*[Main Condition] 
+-IF (&&CM__RETURN EQ 0) GOTO :DEP_1; 
+-GOTO :ENDDEP 
+-*[Main End] 
+ 
+-*[Dependence] 
+-:DEP_0 
+-TYPE  (ICM18015) DEP_0: procedure execute_extract_jira_issue_with_case_number started. 
+ EX extracts/execute_extract_jira_issue_with_case_number 
+-RUN 
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS; 
+-SET &RET_CODE = IF &&CM__RETURN EQ 0 THEN &FOCERRNUM ELSE &&CM__RETURN; 
+-TYPE  (ICM18039) DEP_0 execute_extract_jira_issue_with_case_number Return Code = &RET_CODE 
+-IF (&FOCERRNUM EQ 0) GOTO :DEP_MAIN; 
+-GOTO :ENDDEP 
+ 
+-:DEP_1 
+-TYPE  (ICM18027) DEP_1: flow pf_jira_issue_newest_datrec_to_jira_issue_newest started. 
+ EX CMASAP REQ_NAME = pf_jira_issue_newest_datrec_to_jira_issue_newest, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_1, PRNT_REQ = &&CM__REQUEST 
+-RUN 
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS; 
+-TYPE  (ICM18039) DEP_1 pf_jira_issue_newest_datrec_to_jira_issue_newest Return Code = &&DEP_1_RC 
+ 
+-:ENDDEP 
+-EXIT 
+ 
+-:STOPRPCS 
+-TYPE  (ICM18094) User termination via KILL_RPC flag 
+ 
+END 
+-RUN 
+SET PANEL=0 
+SET MORE=ON 
+SET 2PARTNAME=OFF 
+-RUN 

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<as:Job xmlns:as="urn:tibco:spotfire.dxp.automation">
+ 
+  <as:Tasks>
+ 
+    <OpenAnalysisFromLibrary xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+ 
+      <as:Title>Open Analysis from Library</as:Title>
+ 
+      <AnalysisPath>/SupportFolders/User Folders/JaredPosner/Analysis/JIRA Issues with Case Number</AnalysisPath>
+ 
+    </OpenAnalysisFromLibrary>
+ 
+    <ExportDataToFile xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+ 
+      <as:Title>Export Data to File</as:Title>
+ 
+      <ExportTableVisualization>false</ExportTableVisualization>
+ 
+      <DataTableId>2e7001f6-7ff8-4ac8-804c-6b1828896a58</DataTableId>
+ 
+      <DataTableName>JIRA Issues with Case Number</DataTableName>
+ 
+      <VisualizationId>00000000-0000-0000-0000-000000000000</VisualizationId>
+ 
+      <ExportFormatName>Spotfire.SpreadsheetDataCsvUtf8Writer</ExportFormatName>
+ 
+      <ExportFormatDisplayName>CSV File (Comma-separated, UTF-8): *.csv</ExportFormatDisplayName>
+ 
+      <FilePath>\\guedspijip02.dev.tibco.com\extracts\listen_files\jira_issue_with_case_number.csv</FilePath>
+ 
+    </ExportDataToFile>
+ 
+    <OpenAnalysisFromLibrary xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+ 
+      <as:Title>Open Analysis from Library</as:Title>
+ 
+      <AnalysisPath>/SupportFolders/User Folders/JaredPosner/Analysis/Trigger Report</AnalysisPath>
+ 
+    </OpenAnalysisFromLibrary>
+ 
+    <ExportImage xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+ 
+      <as:Title>Export Image</as:Title>
+ 
+      <VisualizationId>44d66a23-79b3-4ace-a717-b7932d646574</VisualizationId>
+ 
+      <DestinationPath>\\guedspijip02.dev.tibco.com\extracts\listen_files\jira_issue_with_case_number.csv</DestinationPath>
+ 
+      <Width>1536</Width>
+ 
+      <Height>757</Height>
+ 
+      <MaintainAspectRatioInUi>false</MaintainAspectRatioInUi>
+ 
+    </ExportImage>
+ 
+    <SendEmail xmlns="urn:tibco:spotfire.dxp.automation.tasks">
+ 
+      <as:Title>Send Email</as:Title>
+ 
+      <Recipients>
+ 
+        <string>jposner@tibco.com</string>
+ 
+      </Recipients>
+ 
+      <RecipientsCc />
+ 
+      <RecipientsBcc />
+ 
+      <From>jposner@tibco.com</From>
+ 
+      <Subject>Job Completed: jira_issue_with_case_number</Subject>
+ 
+      <Links />
+ 
+      <Attachments />
+ 
+    </SendEmail>
+ 
+  </as:Tasks>
+ 
+</as:Job>

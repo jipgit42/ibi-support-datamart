@@ -1,0 +1,93 @@
+-*DM_JOB_TYPE=1 
+-*DM_USERID=PTH\srvadmin 
+-*DM_CLIENT_RELEASE_GEN=R728728D_2142 
+-*DM_SERVER_RELEASE_GEN=R728728D_2142 
+ 
+-*************************************************** 
+ 
+-:START_PRC 
+SET PANEL=9999 
+SET MORE=OFF 
+SET 2PARTNAME=ON 
+-RUN 
+ 
+-*[Variables to Control Request] 
+-SET &&CM__TARGET = 'cloud_customers'; 
+-SET &&CM__AUTHOR = 'PTH\srvadmin'; 
+-SET &&CM__REQUEST = '&FOCFEXNAME.EVAL'; 
+-SET &&CM__RETURN = 0; 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL; 
+-TYPE  (ICM18122) Request - &FOCFEXNAME (Owner: PTH\srvadmin) submitted. 
+-GOTO :DEP_MAIN; 
+ 
+-:DEP_MAIN 
+-TYPE  (ICM18742) cloud_customers type PostgreSQL Existing target 
+-IF (&SQLAPT NE 'APT') GOTO :SKIPCOMM; 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+-:SKIPCOMM 
+SQL TRUNCATE TABLE cloud_customers 
+END 
+-RUN 
+-SET &&CM__RETURN = &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+-RUN 
+ 
+ENGINE SQLPSTGR SET BULKLOAD OFF 
+-TYPE  (ICM18743) Starting Load 
+ 
+SQL SET UPCASE=OFF; END 
+SQL 
+SELECT 
+   T1.ACCOUNT_NAME 
+FROM 
+   cloud_customers_datrec T1 
+; 
+ 
+TABLE 
+ON TABLE MERGE INTO FILE cloud_customers 
+ INSERT 
+  ACCOUNT_NAME=SRC.E01; 
+END 
+-RUN 
+ 
+-TYPE  (ICM18744) Ending Load 
+-RUN 
+-SET &&CM__RETURN = IF &FOCERRNUM EQ 14104 THEN 0 ELSE &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+-IF (&SQLAPT EQ 'APT') GOTO :SKIPHOLD; 
+ 
+-TYPE  (ICM18440) Request will process data via NON-Pass Through (NON-APT) 
+ 
+-:SKIPHOLD 
+ 
+ 
+-:ENDJOB 
+-TYPE  (ICM18040) Return Code = &&CM__RETURN 
+ 
+SQL SET UPCASE=ON; END 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+-RUN 
+ 
+-TYPE  (ICM18076) Request: &FOCFEXNAME - finished processing 
+ 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL - &&CM__FOCCPU; 
+-TYPE  (ICM18007) CPU Time : &&CM__FOCCPU 
+ 
+-*[Main Condition] 
+-*[Main End] 
+ 
+-*[Dependence] 
+-:ENDDEP 
+SET PANEL=0 
+SET MORE=ON 
+SET 2PARTNAME=OFF 
+-RUN 

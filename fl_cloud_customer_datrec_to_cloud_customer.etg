@@ -1,0 +1,9 @@
+[Version Information]
+Flow Version = 0
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,250,200,298,248,0,0
+DataFlowChildWindow(src:cloud_customers_datrec:t1) = 0,44,185,92,233,0,0
+DataFlowChildWindow(trg:cloud_customers:1) = 0,525,151,573,199,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 120,30
+Coord(Item,DEP_MAIN) = 240,30

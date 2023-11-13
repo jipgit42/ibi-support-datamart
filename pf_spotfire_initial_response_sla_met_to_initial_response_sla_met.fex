@@ -1,0 +1,123 @@
+-*DM_JOB_TYPE=1 
+-*DM_USERID=PTH\srvadmin 
+-*DM_CLIENT_RELEASE_GEN=R728728D_2142 
+-*DM_SERVER_RELEASE_GEN=R728728D_2142 
+-*DM_SCHDCODE=220000000001000100000000000000000000000000000000000 
+-*DM_SCHDSTRT=202110230100 
+-*DM_REQ_ACT=I 
+-*DM_LOG=5 
+-*DM_EMAIL_END=Y 
+-*DM_EMAIL_NAME_END=jposner@tibco.com 
+-**Scheduler Type     : Recurring; Continuous Type. 
+-**Schedule Interval  : Every 01 Day(s). 
+-**Scheduler Start    : 2021/10/23 01:00:00 
+-**Log Destinations   : ETLLOG, E-Mail 
+-***************************************************    
+    
+-:START_PRC    
+SET PANEL=9999    
+SET MORE=OFF    
+SET 2PARTNAME=ON    
+-RUN    
+    
+-*[Variables to Control Request]    
+-SET &&CM__TARGET = 'initial_response_sla_met';    
+-SET &&CM__AUTHOR = 'PTH\srvadmin';    
+-SET &&CM__REQUEST = '&FOCFEXNAME.EVAL';    
+-SET &&CM__RETURN = 0;    
+-SET &&CM__FOCCPU = &FOCCPU.EVAL;    
+-SET &&KILL_RPC = 'N';    
+-TYPE  (ICM18122) Request - &FOCFEXNAME (Owner: PTH\srvadmin) submitted.    
+-GOTO :DEP_0;    
+    
+-:DEP_MAIN    
+-TYPE  (ICM18742) reporting/initial_response_sla_met type PostgreSQL Existing target    
+-IF (&SQLAPT NE 'APT') GOTO :SKIPCOMM;    
+SQL SQLPSTGR    
+COMMIT WORK;    
+END    
+-:SKIPCOMM    
+SQL TRUNCATE TABLE reporting.initial_response_sla_met    
+END    
+-RUN    
+-SET &&CM__RETURN = &FOCERRNUM;    
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB;    
+    
+SQL SQLPSTGR    
+COMMIT WORK;    
+END    
+-RUN    
+    
+ENGINE SQLPSTGR SET BULKLOAD OFF    
+-TYPE  (ICM18743) Starting Load    
+    
+SQL SET UPCASE=OFF; END    
+SQL    
+SELECT    
+   T1.CASENUMBER ,    
+   T1.INITIAL_RESPONSE_SLA_VIOLATED__C    
+FROM    
+   extracts.initial_response_sla_met T1    
+;    
+    
+TABLE    
+ON TABLE MERGE INTO FILE reporting/initial_response_sla_met    
+ INSERT    
+  CASENUMBER=SRC.E01;    
+  INITIAL_RESPONSE_SLA_VIOLATED__C=SRC.E02;    
+END    
+-RUN    
+    
+-TYPE  (ICM18744) Ending Load    
+-RUN    
+-SET &&CM__RETURN = IF &FOCERRNUM EQ 14104 THEN 0 ELSE &FOCERRNUM;    
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB;    
+    
+-IF (&SQLAPT EQ 'APT') GOTO :SKIPHOLD;    
+    
+-TYPE  (ICM18440) Request will process data via NON-Pass Through (NON-APT)    
+    
+-:SKIPHOLD    
+    
+    
+-:ENDJOB    
+-TYPE  (ICM18040) Return Code = &&CM__RETURN    
+    
+SQL SET UPCASE=ON; END    
+SQL SQLPSTGR    
+COMMIT WORK;    
+END    
+-RUN    
+    
+-TYPE  (ICM18076) Request: &FOCFEXNAME - finished processing    
+    
+-SET &&CM__FOCCPU = &FOCCPU.EVAL - &&CM__FOCCPU;    
+-TYPE  (ICM18007) CPU Time : &&CM__FOCCPU    
+    
+-*[Main Condition]    
+-GOTO :ENDDEP    
+-*[Main End]    
+    
+-*[Dependence]    
+-:DEP_0    
+-TYPE  (ICM18015) DEP_0: procedure execute_extract_initial_response_sla_met started.    
+ EX extracts/execute_extract_initial_response_sla_met    
+-RUN    
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;    
+-SET &RET_CODE = IF &&CM__RETURN EQ 0 THEN &FOCERRNUM ELSE &&CM__RETURN;    
+-TYPE  (ICM18039) DEP_0 execute_extract_initial_response_sla_met Return Code = &RET_CODE    
+-IF (&FOCERRNUM EQ 0) GOTO :DEP_MAIN;    
+-GOTO :ENDDEP    
+    
+-:ENDDEP    
+-EXIT    
+    
+-:STOPRPCS    
+-TYPE  (ICM18094) User termination via KILL_RPC flag    
+    
+END    
+-RUN    
+SET PANEL=0    
+SET MORE=ON    
+SET 2PARTNAME=OFF    
+-RUN 

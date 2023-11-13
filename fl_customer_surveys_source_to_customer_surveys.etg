@@ -1,0 +1,9 @@
+[Version Information]
+Flow Version = 2
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,466,34,514,82,0,0
+DataFlowChildWindow(src:customer_surveys_source:t1) = 0,127,152,175,200,0,0
+DataFlowChildWindow(trg:customer_surveys:1) = 0,842,150,890,198,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 120,30
+Coord(Item,DEP_MAIN) = 240,30

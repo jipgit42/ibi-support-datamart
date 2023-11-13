@@ -1,0 +1,30 @@
+FILENAME=ATACCAMA_MNT, SUFFIX=DFIX    ,
+ CODEPAGE=1252,
+ DATASET=extracts/royalty/Ataccama_Mnt.csv,
+ REMARKS='Synonym for Delimited Flat File with parameters: DELIMITER=,, HEADER=YES, ENCLOSURE=", CDN=COMMAS_DOT', $
+  SEGMENT=ROYALTYDETAILS_ATACCAMA_MNT, SEGTYPE=S0, $
+    FIELDNAME=PERIOD, ALIAS=Period, USAGE=A6V, ACTUAL=A6VB,
+      MISSING=ON,
+      TITLE='Period', $
+    FIELDNAME=CUSTOMER_NAME, ALIAS='Customer Name', USAGE=A68V, ACTUAL=A68VB,
+      MISSING=ON,
+      TITLE='Customer Name', $
+    FIELDNAME=PRODUCT, ALIAS=Product, USAGE=A25V, ACTUAL=A25VB,
+      MISSING=ON,
+      TITLE='Product', $
+    FIELDNAME=END_DATE, ALIAS='End Date', USAGE=MDYY, ACTUAL=A10V,
+      MISSING=ON,
+      TITLE='End Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=FEE, ALIAS=Fee, USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Fee', $
+    FIELDNAME=RENEWAL_TARGET_DATE, ALIAS='Renewal Target Date', USAGE=MDYY, ACTUAL=A10V,
+      MISSING=ON,
+      TITLE='Renewal Target Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=RENEWAL_TYPE, ALIAS='Renewal Type', USAGE=A12V, ACTUAL=A12VB,
+      MISSING=ON,
+      TITLE='Renewal Type', $
+    FIELDNAME=RENEWAL_STATUS, ALIAS='Renewal Status', USAGE=A4V, ACTUAL=A4VB,
+      MISSING=ON,
+      TITLE='Renewal Status', $
+    COMPUTE oem_vendor/A20='ataccama_mnt';, $

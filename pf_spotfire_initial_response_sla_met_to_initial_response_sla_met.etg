@@ -1,0 +1,10 @@
+[Version Information]
+Flow Version = 1
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,240,45,288,93,0,0
+DataFlowChildWindow(src:initial_response_sla_met:t1) = 0,40,45,88,93,0,0
+DataFlowChildWindow(trg:initial_response_sla_met:1) = 0,440,45,488,93,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 120,30
+Coord(Item,DEP_MAIN) = 542,110
+Coord(Item,DEP_0) = 269,76

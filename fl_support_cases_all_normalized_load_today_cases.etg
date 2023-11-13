@@ -1,0 +1,10 @@
+[Version Information]
+Flow Version = 3
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,323,55,371,103,0,0
+DataFlowChildWindow(src:support_cases_for_normalized_load:t1) = 0,81,57,129,105,0,0
+DataFlowChildWindow(trg:support_cases_normalized:1) = 0,517,57,565,105,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 120,30
+Coord(Item,DEP_MAIN) = 495,26
+Coord(Item,DEP_0) = 284,48

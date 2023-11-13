@@ -1,0 +1,115 @@
+-*DM_JOB_TYPE=1 
+ 
+-*DM_USERID=PTH\srvadmin 
+-*DM_REQ_ACT=A 
+-*DM_SCHDCODE=220000000003000100000000000000000000000000000000000 
+-*DM_SCHDSTRT=202110270300 
+-*DM_LOG=5 
+-*DM_EMAIL_END=Y 
+-*DM_EMAIL_NAME_END=jposner@tibco.com 
+-*DM_EMAIL_FAIL=Y 
+-*DM_EMAIL_NAME_FAIL=jtam@tibco.com, rzublion@tibco.com, jposner@tibco.com 
+-*DM_CLIENT_RELEASE_GEN=M729000D_2351 
+-*DM_SERVER_RELEASE_GEN=M729000D_2351 
+-**Scheduler Type     : Recurring; Continuous Type. 
+-**Schedule Interval  : Every 01 Day(s). 
+-**Scheduler Start    : 2021/10/27 03:00:00 
+-**Log Destinations   : ETLLOG, E-Mail 
+ 
+-***************************************************   
+   
+-:START_PRC   
+SET PANEL=9999   
+SET MORE=OFF   
+SET 2PARTNAME=ON   
+-RUN   
+   
+-*[Variables to Control Request]   
+-SET &&CM__AUTHOR = 'PTH\srvadmin';   
+-SET &&CM__REQUEST = '&FOCFEXNAME.EVAL';   
+-SET &&CM__RETURN = 0;   
+-SET &&CM__FOCCPU = &FOCCPU.EVAL;   
+-SET &&KILL_RPC = 'N';   
+-DEFAULT &DBMSERROR = 10000000   
+-DEFAULT &STARTAT = 0   
+-DEFAULT &STOPAT  = 1000000000   
+   
+-TYPE  (ICM18122) Request - &FOCFEXNAME (Owner: PTH\srvadmin) submitted.   
+-GOTO :DEP_0;   
+   
+   
+-*[Main Condition]   
+-*[Main End]   
+   
+-*[Dependence]   
+-:DEP_0   
+-TYPE  (ICM18027) DEP_0: flow pf_spotfire_support_cases_ibi_all_to_support_cases started.   
+ EX CMASAP REQ_NAME = pf_spotfire_support_cases_ibi_all_to_support_cases, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_0, PRNT_REQ = &&CM__REQUEST   
+-RUN   
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;   
+-TYPE  (ICM18039) DEP_0 pf_spotfire_support_cases_ibi_all_to_support_cases Return Code = &&DEP_0_RC   
+-GOTO :DEP_6;   
+   
+-:DEP_1   
+-TYPE  (ICM18027) DEP_1: flow pf_spotfire_initial_response_sla_met_to_initial_response_sla_met started.   
+ EX CMASAP REQ_NAME = pf_spotfire_initial_response_sla_met_to_initial_response_sla_met, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_1, PRNT_REQ = &&CM__REQUEST   
+-RUN   
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;   
+-TYPE  (ICM18039) DEP_1 pf_spotfire_initial_response_sla_met_to_initial_response_sla_met Return Code = &&DEP_1_RC   
+-GOTO :DEP_2;   
+   
+-:DEP_2   
+-TYPE  (ICM18027) DEP_2: flow pf_spotfire_jira_issue_with_case_number_to_jira_issue started.   
+ EX CMASAP REQ_NAME = pf_spotfire_jira_issue_with_case_number_to_jira_issue, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_2, PRNT_REQ = &&CM__REQUEST   
+-RUN   
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;   
+-TYPE  (ICM18039) DEP_2 pf_spotfire_jira_issue_with_case_number_to_jira_issue Return Code = &&DEP_2_RC   
+-GOTO :DEP_4;   
+   
+-:DEP_3   
+-TYPE  (ICM18027) DEP_3: flow fl_support_cases_all_normalized_load started.   
+ EX CMASAP REQ_NAME = fl_support_cases_all_normalized_load, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_3, PRNT_REQ = &&CM__REQUEST   
+-RUN   
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;   
+-TYPE  (ICM18039) DEP_3 fl_support_cases_all_normalized_load Return Code = &&DEP_3_RC   
+-IF (&&DEP_3_RC EQ 0) GOTO :DEP_5;   
+-GOTO :ENDDEP   
+   
+-:DEP_4   
+-TYPE  (ICM18027) DEP_4: flow pf_spotfire_customer_surveys_source_to_customer_surveys started.   
+ EX CMASAP REQ_NAME = pf_spotfire_customer_surveys_source_to_customer_surveys, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_4, PRNT_REQ = &&CM__REQUEST   
+-RUN   
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;   
+-TYPE  (ICM18039) DEP_4 pf_spotfire_customer_surveys_source_to_customer_surveys Return Code = &&DEP_4_RC   
+-GOTO :DEP_3;   
+   
+-:DEP_5   
+-TYPE  (ICM18027) DEP_5: flow fl_bv_support_cases_to_support_cases_2020_and_later_limited_columns started.   
+ EX CMASAP REQ_NAME = fl_bv_support_cases_to_support_cases_2020_and_later_limited_columns, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_5, PRNT_REQ = &&CM__REQUEST   
+-RUN   
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;   
+-TYPE  (ICM18039) DEP_5 fl_bv_support_cases_to_support_cases_2020_and_later_limited_columns Return Code = &&DEP_5_RC   
+-GOTO :ENDDEP   
+   
+-:DEP_6   
+-TYPE  (ICM18027) DEP_6: flow support_cases_jaspersoft_all_to_support_cases_jaspersoft started.   
+ EX CMASAP REQ_NAME = support_cases_jaspersoft_all_to_support_cases_jaspersoft, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_6, PRNT_REQ = &&CM__REQUEST   
+-RUN   
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;   
+-TYPE  (ICM18039) DEP_6 support_cases_jaspersoft_all_to_support_cases_jaspersoft Return Code = &&DEP_6_RC   
+-GOTO :DEP_1;   
+   
+-:ENDDEP   
+-EXIT   
+   
+-:STOPRPCS   
+-TYPE  (ICM18094) User termination via KILL_RPC flag   
+   
+END   
+-RUN   
+SET PANEL=0   
+SET MORE=ON   
+SET 2PARTNAME=OFF   
+-RUN  
+ 
+ 

@@ -1,0 +1,30 @@
+FILENAME=ROYALTYDETAILS_LOQATE, SUFFIX=DFIX    ,
+ CODEPAGE=1252,
+ DATASET=extracts/royalty/Loqate.csv,
+ REMARKS='Synonym for Delimited Flat File with parameters: DELIMITER=,, HEADER=YES, ENCLOSURE=", CDN=COMMAS_DOT', $
+  SEGMENT=ROYALTYDETAILS_LOQATE, SEGTYPE=S0, $
+    FIELDNAME=PERIOD, ALIAS=Period, USAGE=A6V, ACTUAL=A6VB,
+      MISSING=ON,
+      TITLE='Period', $
+    FIELDNAME=CUSTOMER_NAME, ALIAS='Customer Name', USAGE=A45V, ACTUAL=A45VB,
+      MISSING=ON,
+      TITLE='Customer Name', $
+    FIELDNAME=PRODUCT, ALIAS=Product, USAGE=A55V, ACTUAL=A55VB,
+      MISSING=ON,
+      TITLE='Product', $
+    FIELDNAME=END_DATE, ALIAS='End Date', USAGE=MDYY, ACTUAL=A10V,
+      MISSING=ON,
+      TITLE='End Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=FEE, ALIAS=Fee, USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Fee', $
+    FIELDNAME=RENEWAL_TARGET_DATE, ALIAS='Renewal Target Date', USAGE=MDYY, ACTUAL=A10V,
+      MISSING=ON,
+      TITLE='Renewal Target Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=RENEWAL_TYPE, ALIAS='Renewal Type', USAGE=A12V, ACTUAL=A12VB,
+      MISSING=ON,
+      TITLE='Renewal Type', $
+    FIELDNAME=RENEWAL_STATUS, ALIAS='Renewal Status', USAGE=A4V, ACTUAL=A4VB,
+      MISSING=ON,
+      TITLE='Renewal Status', $
+    COMPUTE oem_vendor/A20='loqate';, $

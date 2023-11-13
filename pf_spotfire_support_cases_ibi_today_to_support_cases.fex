@@ -1,0 +1,89 @@
+-*DM_JOB_TYPE=1 
+ 
+-*DM_USERID=PTH\srvadmin 
+-*DM_REQ_ACT=I 
+-*DM_SCHDCODE=Ir0015 
+-*DM_SCHDSTRT=202109212100 
+-*DM_SCHDDAILYSTRT=000000 
+-*DM_SCHDDAILYEND=000000 
+-*DM_LOG=5 
+-*DM_EMAIL_END=Y 
+-*DM_EMAIL_NAME_END=jposner@tibco.com 
+-*DM_CLIENT_RELEASE_GEN=M728728D_2152 
+-*DM_SERVER_RELEASE_GEN=M728728D_2152 
+-*DM_EMAIL_FAIL=Y 
+-*DM_EMAIL_NAME_FAIL=jtam@tibco.com, rzublion@tibco.com, jposner@tibco.com 
+-**Scheduler Type     : Recurring; Continuous Type. 
+-**Schedule Interval  : Every 15 Minute(s). 
+-**Scheduler Start    : 2021/09/21 21:00:00 
+-**Intraday Start     : 00:00:00 
+-**Intraday End       : 00:00:00 
+-**Log Destinations   : ETLLOG, E-Mail 
+ 
+-***************************************************    
+    
+-:START_PRC    
+SET PANEL=9999    
+SET MORE=OFF    
+SET 2PARTNAME=ON    
+-RUN    
+    
+-*[Variables to Control Request]    
+-SET &&CM__AUTHOR = 'PTH\srvadmin';    
+-SET &&CM__REQUEST = '&FOCFEXNAME.EVAL';    
+-SET &&CM__RETURN = 0;    
+-SET &&CM__FOCCPU = &FOCCPU.EVAL;    
+-SET &&KILL_RPC = 'N';    
+-DEFAULT &DBMSERROR = 10000000    
+-DEFAULT &STARTAT = 0    
+-DEFAULT &STOPAT  = 1000000000    
+    
+-TYPE  (ICM18122) Request - &FOCFEXNAME (Owner: PTH\srvadmin) submitted.    
+-GOTO :DEP_0;    
+    
+    
+-*[Main Condition]    
+-*[Main End]    
+    
+-*[Dependence]    
+-:DEP_0    
+-TYPE  (ICM18015) DEP_0: procedure execute_extract_support_cases_today_cases started.    
+ EX extracts/execute_extract_support_cases_today_cases    
+-RUN    
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;    
+-SET &RET_CODE = IF &&CM__RETURN EQ 0 THEN &FOCERRNUM ELSE &&CM__RETURN;    
+-TYPE  (ICM18039) DEP_0 execute_extract_support_cases_today_cases Return Code = &RET_CODE    
+-IF (&FOCERRNUM EQ 0) GOTO :DEP_1;    
+-GOTO :ENDDEP    
+    
+-:DEP_1    
+-TYPE  (ICM18027) DEP_1: flow support_cases_ibi_today_to_support_cases started.    
+ EX CMASAP REQ_NAME = support_cases_ibi_today_to_support_cases, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_1, PRNT_REQ = &&CM__REQUEST    
+-RUN    
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;    
+-TYPE  (ICM18039) DEP_1 support_cases_ibi_today_to_support_cases Return Code = &&DEP_1_RC    
+-IF (&&DEP_1_RC EQ 0) GOTO :DEP_2;    
+-GOTO :ENDDEP    
+    
+-:DEP_2    
+-TYPE  (ICM18027) DEP_2: flow fl_support_cases_all_normalized_load_today_cases started.    
+ EX CMASAP REQ_NAME = fl_support_cases_all_normalized_load_today_cases, CM_ASYNC = OFF, APPDIR = extracts, DEP_ALIAS = DEP_2, PRNT_REQ = &&CM__REQUEST    
+-RUN    
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS;    
+-TYPE  (ICM18039) DEP_2 fl_support_cases_all_normalized_load_today_cases Return Code = &&DEP_2_RC    
+    
+-:ENDDEP    
+-EXIT    
+    
+-:STOPRPCS    
+-TYPE  (ICM18094) User termination via KILL_RPC flag    
+    
+END    
+-RUN    
+SET PANEL=0    
+SET MORE=ON    
+SET 2PARTNAME=OFF    
+-RUN   
+  
+ 
+ 

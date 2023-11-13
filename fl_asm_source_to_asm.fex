@@ -1,0 +1,119 @@
+-*DM_JOB_TYPE=1 
+ 
+-*DM_USERID=PTH\srvadmin 
+-*DM_CLIENT_RELEASE_GEN=R728728D_2142 
+-*DM_SERVER_RELEASE_GEN=R728728D_2142 
+ 
+-:START_PRC 
+ 
+SET PANEL=9999 
+SET MORE=OFF 
+SET 2PARTNAME=ON 
+-RUN 
+ 
+-*[Variables to Control Request] 
+ 
+-SET &&CM__TARGET = 'asm'; 
+-SET &&CM__AUTHOR = 'PTH\srvadmin'; 
+-SET &&CM__REQUEST = '&FOCFEXNAME.EVAL'; 
+-SET &&CM__RETURN = 0; 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL; 
+-SET &&KILL_RPC = 'N'; 
+ 
+-TYPE  (ICM18122) Request - &FOCFEXNAME (Owner: PTH\srvadmin) submitted. 
+ 
+-GOTO :DEP_MAIN 
+ 
+-:DEP_MAIN 
+ 
+-TYPE  (ICM18742) reporting/asm type PostgreSQL Existing target 
+ 
+SQL SET UPCASE OFF; 
+END 
+ 
+SQL  
+TRUNCATE TABLE 
+"reporting"."asm" 
+END 
+-RUN 
+ 
+-SET &&CM__RETURN = &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+ 
+ENGINE SQLPSTGR SET BULKLOAD OFF 
+ 
+SQL  
+SELECT 
+   T1.ACCOUNT_NAME ,  
+   T1.ASM ,  
+   T1.ASM_S_MANGER  
+FROM 
+   extracts.asm_source T1  
+; 
+TABLE 
+ ON TABLE SET STYLE * 
+  INCLUDE=_EDAHOME/etc/Warm, $ 
+ ENDSTYLE 
+ ON TABLE SET PAGE NOPAGE 
+ ON TABLE SET HOLDATTRS CUBE 
+ ON TABLE SET HOLDLIST NOFOCLIST 
+ ON TABLE SET EMPTYREPORT ON 
+ ON TABLE SET SHORTPATH SQL 
+ ON TABLE SET ACROSSPRT COMPRESS 
+ ON TABLE MERGE INTO FILE reporting/asm 
+   INSERT 
+    ACCOUNT_NAME=SRC.ACCOUNT_NAME; 
+    ASM=SRC.ASM; 
+    ASM_S_MANGER=SRC.ASM_S_MANGER; 
+END 
+-RUN 
+ 
+-SET &&CM__RETURN = &FOCERRNUM; 
+ 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+ 
+-TYPE  (ICM18744) Ending Load 
+-RUN 
+ 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+-IF (&SQLAPT EQ 'APT') GOTO :SKIPHOLD; 
+ 
+-TYPE  (ICM18440) Request will process data via NON-Pass Through (NON-APT) 
+ 
+-:SKIPHOLD 
+ 
+-:ENDJOB 
+ 
+-TYPE  (ICM18040) Return Code = &&CM__RETURN 
+ 
+SQL SET UPCASE ON; 
+END 
+ 
+SET PANEL=0 
+SET MORE=ON 
+SET 2PARTNAME=OFF 
+-RUN 
+ 
+-TYPE  (ICM18076) Request: &FOCFEXNAME - finished processing 
+ 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL - &&CM__FOCCPU; 
+ 
+-TYPE  (ICM18007) CPU Time : &&CM__FOCCPU 
+ 
+-*[Main Condition] 
+ 
+-GOTO :ENDDEP 
+ 
+-*[Main End] 
+ 
+-*[Dependence] 
+ 
+-:ENDDEP 
+ 

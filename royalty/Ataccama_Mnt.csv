@@ -1,0 +1,41 @@
+Period,Customer Name,Product,End Date,Fee,Renewal Target Date,Renewal Type,Renewal Status
+Q1' 22,"AFL Telecommunications LLC (America Fujikura, Ltd)",ibi Legacy Omni,12/27/2022,5209.31,,,
+Q1' 22,City of Burlington,ibi Legacy Omni,1/31/2023,2092.33,02/01/2023,Maintenance,Lost
+Q1' 22,"Floyd Healthcare Management, Inc.",ibi Legacy Omni,3/30/2023,2180.99,3/30/2023,Maintenance,Open
+Q1' 22,Government Employees Insurance Company,ibi Legacy Omni,12/30/2022,12797.3,,,
+Q1' 22,Massage Envy Franchising LLC,ibi Legacy Omni,12/26/2022,648,12/27/2022,Maintenance,Lost
+Q1' 22,SMACL Assurances,ibi Legacy Omni,12/20/2022,4026.73,,,
+Q1' 22,Southwest Business Corporation,ibi Legacy WebFOCUS,12/31/2022,31399.71,1/1/2023,Maintenance,Lost
+Q1' 22,The Alcohol and Gaming Commission of Ontario,ibi Legacy Omni,3/31/2023,2829.85,4/1/2023,Maintenance,Lost
+Q1' 22,United Educators Insurance,ibi Legacy Omni,2/27/2023,7607.99,2/28/2023,Maintenance,Lost
+Q1' 22,United Educators Insurance,ibi Legacy Omni,2/27/2023,2197.73,2/28/2023,Maintenance,Lost
+Q1' 22,Venable LLP,ibi Legacy Omni,12/20/2022,7789.35,,,
+Q1' 22,Waterloo Regional Police Service,ibi Legacy WebFOCUS,12/26/2022,7141.57,12/27/2022,Maintenance,Won
+Q1' 22,Fred Hutchinson Cancer Research Center,ibi Legacy Omni,3/23/2023,9162.89,3/24/2023,Maintenance,Open
+Q1' 22,BAE Systems Surface Ships Limited,ibi Legacy iWay,3/30/2023,2971.77,3/31/2023,Maintenance,Open
+Q1' 22,BAE Systems Surface Ships Limited,ibi Legacy WebFOCUS,3/30/2023,26721.85,3/31/2023,Maintenance,Open
+Q2' 22,"WellMed Medical Management, Inc.",ibi Legacy Omni AIMDM,9/30/2022,4413.08,4/1/2023,Maintenance,Open
+Q2' 22,County of San Mateo,ibi Legacy Omni,3/31/2023,2619.7,4/1/2023,Maintenance,Open
+Q2' 22,Ascention Services Pty Ltd,ibi Legacy Omni,6/30/2022,2698.19,,,
+Q2' 22,InfoBuild Pty Ltd,ibi Legacy Omni,9/29/2022,9047.5,,,
+Q2' 22,Centraal Administratie Kantoor,ibi Legacy Omni,5/20/2024,11631.46,,,
+Q3' 22,"IHS Markit, LTD",ibi Legacy Omni (DQS),7/30/2023,19847,7/31/2023,Maintenance,Open
+Q3' 22,"Nebco, Inc",ibi Legacy Omni (DQS),7/30/2023,7456,7/31/2023,Maintenance,Open
+Q3' 22,CGRAE,ibi Legacy Omni,6/29/2022,2596,9/30/2023,Maintenance,Open
+Q3' 22,New Clicks South Africa Pty Ltd.,ibi Legacy Omni,9/29/2023,5809,9/30/2023,Maintenance,Open
+Q3' 22,"Wheels, LLC",ibi Legacy Omni (DQS),8/27/2023,6034,8/28/2023,Maintenance,Open
+Q3' 22,The Bank of New York Mellon Corporation,ibi Legacy Omni (DQS),8/14/2023,11901,8/15/2023,Maintenance,Open
+Q3' 22,Greater Lawrence Family Health Center,ibi Legacy Omni,9/27/2023,2315,9/28/2023,Maintenance,Open
+Q4' 22,General Pension and Social Security Authority,ibi Legacy Omni AIMDM,10/30/2023,6666,10/31/2023,Maintenance,Open
+Q4' 22,Boston Medical Center Healthnet Plan,ibi Legacy Omni DQC,12/28/2023,8335,,,
+Q4' 22,Siseministeerium Ministry of the Interior of the Republic of Estonia,ibi Legacy Omni AIDQC,10/6/2023,2651,10/7/2023,Maintenance,Won
+Q4' 22,SiteOne Landscape Supply,ibi Legacy Omni,10/19/2023,12293,10/20/2023,Maintenance,Open
+Q4' 22,SMACL,DATA QUALITY (DQC) ENGINE,12/20/2022,1946,,,
+Q4' 22,SMACL,IWAY DATA STEWARD PORTAL,12/20/2022,1651,,,
+Q4' 22,SMACL,DATA QUALITY (DQC) ENGINE,12/20/2022,779,,,
+Q4' 22,SMACL,IWAY DATA STEWARD PORTAL,12/20/2022,130,,,
+Q4' 22,SMACL Assurances,ibi Legacy Omni,12/20/2023,2022,,,
+Q4' 22,U.S. Bank,ibi Legacy Omni,3/31/2023,70209,4/1/2023,Subscription,Open
+Q4' 22,UnitedHealth Group,ibi Legacy Omni AIMDM,3/31/2023,5109,,,
+Q4' 22,Waterloo Regional Police Service,ibi Legacy WebFOCUS,12/26/2023,13120,12/27/2022,Maintenance,Won
+Q4' 22,SHI International Corp.,ibi Legacy Omni,3/31/2023,7278,,,

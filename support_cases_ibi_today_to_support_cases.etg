@@ -1,0 +1,9 @@
+[Version Information]
+Flow Version = 12
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,353,150,401,198,0,0
+DataFlowChildWindow(src:support_cases_ibi_today:t1) = 0,140,151,188,199,0,0
+DataFlowChildWindow(trg:support_cases:1) = 0,588,148,636,196,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 120,30
+Coord(Item,DEP_MAIN) = 240,30

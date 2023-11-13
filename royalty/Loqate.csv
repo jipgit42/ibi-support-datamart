@@ -1,0 +1,33 @@
+Period,Customer Name,Product,End Date,Fee,Renewal Target Date,Renewal Type,Renewal Status
+Q1' 22,Farmers Mutual Hail Insurance Company of Iowa,TIBCO Omni-Gen Address for United States plus Geocoding,12/31/2021,11900,12/28/2022,Maintenance,Won
+Q1' 22,Farmers Mutual Hail Insurance Company of Iowa,TIBCO Omni-Gen Address for United States CASS Add on,12/31/2021,1400,12/28/2022,Maintenance,Won
+Q1' 22,The Health Collaborative,ibi Legacy WebFOCUS (Cloud),12/22/2024,11900,12/22/2024,,
+Q1' 22,American Thrombosis and Hemostasis Network,TIBCO Omni-Gen Address for United States plus Geocoding,3/30/2024,11200,3/30/2024,,
+Q1' 22,Servus Credit Union Ltd,TIBCO Omni-Gen Address for Canada,2/13/2022,9100,2/13/2023,Subscription,Lost
+Q1' 22,Bank United N.A.,TIBCO Omni-Gen Address for United States plus Geocoding,2/20/2022,11900,2/20/2023,Subscription,Won
+Q2' 22,American Thrombosis and Hemostasis Network,TIBCO Omni-Gen Address for United States plus Geocoding,3/30/2024,11900,3/30/2024,,
+Q2' 22,"Community Care of North Carolina, Inc.",TIBCO Omni-Gen Address for United States,3/29/2024,11200,3/30/2023,Maintenance,Open
+Q2' 22,St. Luke's University Health Network,ibi Legacy iWay,5/27/2024,11900,5/27/2024,,
+Q2' 22,Arqiva Ltd,ibi Legacy Omni (Cloud),9/22/2022,11900,9/23/2023,Subscription,Open
+Q3' 22,"Health New England, Inc.",TIBCO Omni-Gen Address for United States plus Geocoding,5/24/2022,11900,12/18/2022,Maintenance,Won
+Q3' 22,"Health New England, Inc.",TIBCO Omni-Gen Address for United States CASS Add on,5/23/2023,1400,12/18/2022,Maintenance,Won
+Q3' 22,Carson Tahoe Health,TIBCO Health Essentials Cloud,8/26/2026,5500,8/26/2026,,
+Q3' 22,Chesapeake Regional Medical Center,ibi Legacy Omni (Cloud),9/29/2023,13500,9/30/2023,Subscription,Open
+Q4' 22,Trialcard Incorporated,TIBCO Omni-Gen Address for United States plus Geocoding,9/29/2024,11900,9/29/2024,,
+Q4' 22,The Corporation of the City of Brampton,TIBCO Omni-Gen Address for Canada plus Geocoding,9/21/2022,9880,9/21/2023,Subscription,Open
+Q4' 22,The Bank of New York Mellon Corporation,TIBCO Omni-Gen Address for United States CASS Add on,9/30/2022,8048,12/20/2022,Maintenance,Won
+Q4' 22,The Bank of New York Mellon Corporation,TIBCO Omni-Gen Address for United States,9/29/2023,8048,12/20/2022,Maintenance,Won
+Q4' 22,Farmers Mutual Hail Insurance Company of Iowa,TIBCO Omni-Gen Address for United States CASS Add on,12/30/2024,13300,12/28/2022,Maintenance,Won
+Q4' 22,"Fund for Public Health in New York, Inc.",TIBCO Omni-Gen Address for United States plus Geocoding,2/25/2022,11900,6/30/2024,,
+Q4' 22,Bank United N.A.,TIBCO DQ Address Engine,11/28/2022,6500,2/20/2023,Subscription,Won
+Q4' 22,Hertz Corporation,TIBCO Omni-Gen Address for United States,4/30/2022,6500,10/31/2023,Subscription,Open
+Q4' 22,Hertz Corporation,TIBCO Omni-Gen Address for Canada,4/29/2023,6500,10/31/2023,Subscription,Open
+Q4' 22,The Health Collaborative,ibi Legacy WebFOCUS (Cloud),12/22/2024,11900,12/22/2024,,
+Q1' 23,Technical Standards and Safety Authority,TIBCO Omni-Gen Address for Canada plus Geocoding,11/30/2023,9800,12/1/2022,Maintenance,Lost
+Q1' 23,"Fund for Public Health in New York, Inc.",TIBCO Omni-Gen Address for United States plus Geocoding,6/30/2024,11900,6/30/2024,,
+Q1' 23,Southwest Business Corporation,TIBCO DQ Address for United States,1/1/2023,5000,1/1/2023,Maintenance,Lost
+Q1' 23,Southwest Business Corporation,TIBCO DQ Address Engine,1/1/2023,6500,1/1/2023,Maintenance,Lost
+Q1' 23,Bank United N.A.,TIBCO Omni-Gen Address for United States plus Geocoding,2/19/2024,5000,2/20/2023,Subscription,Won
+Q1' 23,Bank United N.A.,TIBCO DQ Address Engine,11/28/2022,6500,2/20/2023,Subscription,Won
+Q1' 23,"Floyd Healthcare Management, Inc.",ibi Legacy Omni,3/30/2024,6048,3/31/2023,Maintenance,Open
+Q1' 23,American National Bank,ibi Legacy Omni,12/30/2023,11900,,,

@@ -1,0 +1,296 @@
+FILENAME=SUPPORT_CASES_JASPERSOFT_ALL, SUFFIX=DFIX    ,
+ CODEPAGE=65001,
+ DATASET=C:\ibi\apps\extracts\listen_files\support_cases_jaspersoft_all.csv, $
+  SEGMENT=SUPPORT_CASES_JASPERSOFT_ALL, SEGTYPE=S0, $
+     FIELDNAME=CASE_ID, ALIAS='Case ID', USAGE=A66V, ACTUAL=A66VB,
+      MISSING=ON,
+      TITLE='Case ID', $
+    FIELDNAME=CASE_NUMBER, ALIAS='Case Number', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Case Number', $
+    FIELDNAME=SUBJECT, ALIAS=Subject, USAGE=A480V, ACTUAL=A480VB,
+      MISSING=ON,
+      TITLE='Subject', $
+    FIELDNAME=STATUS__ORIG_, ALIAS='Status (orig)', USAGE=A150V, ACTUAL=A150VB,
+      MISSING=ON,
+      TITLE='Status (orig)', $
+    FIELDNAME=STATUS, ALIAS=Status, USAGE=A150V, ACTUAL=A150VB,
+      MISSING=ON,
+      TITLE='Status', $
+    FIELDNAME=PRIORITY, ALIAS=Priority, USAGE=A50V, ACTUAL=A50VB,
+      MISSING=ON,
+      TITLE='Priority', $
+    FIELDNAME=SEVERITY, ALIAS=Severity, USAGE=A30V, ACTUAL=A30VB,
+      MISSING=ON,
+      TITLE='Severity', $
+    FIELDNAME=OWNER, ALIAS=Owner, USAGE=A75V, ACTUAL=A75VB,
+      MISSING=ON,
+      TITLE='Owner', $
+    FIELDNAME=OWNER_TYPE, ALIAS='Owner Type', USAGE=A18V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Owner Type', $
+    FIELDNAME=OWNER__USER_, ALIAS='Owner (User)', USAGE=A75V, ACTUAL=A75VB,
+      MISSING=ON,
+      TITLE='Owner (User)', $
+    FIELDNAME=OWNER__QUEUE_, ALIAS='Owner (Queue)', USAGE=A69V, ACTUAL=A69VB,
+      MISSING=ON,
+      TITLE='Owner (Queue)', $
+    FIELDNAME=OWNER_MANAGER, ALIAS='Owner Manager', USAGE=A48V, ACTUAL=A48VB,
+      MISSING=ON,
+      TITLE='Owner Manager', $
+    FIELDNAME=DATE_CREATED, ALIAS='Date Created', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Created', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=PRIMARY_QUEUE, ALIAS='Primary Queue', USAGE=A108V, ACTUAL=A108VB,
+      MISSING=ON,
+      TITLE='Primary Queue', $
+    FIELDNAME=ACCOUNT_NAME, ALIAS='Account Name', USAGE=A180V, ACTUAL=A180VB,
+      MISSING=ON,
+      TITLE='Account Name', $
+    FIELDNAME=CUSTOMER_NAME, ALIAS='Customer Name', USAGE=A174V, ACTUAL=A174VB,
+      MISSING=ON,
+      TITLE='Customer Name', $
+    FIELDNAME=CONTACT_NAME, ALIAS='Contact Name', USAGE=A90V, ACTUAL=A90VB,
+      MISSING=ON,
+      TITLE='Contact Name', $
+    FIELDNAME=PRODUCT_SUITE, ALIAS='Product Suite', USAGE=A10V, ACTUAL=A10VB,
+      MISSING=ON,
+      TITLE='Product Suite', $
+    FIELDNAME=PRODUCT_NAME, ALIAS='Product Name', USAGE=A120V, ACTUAL=A120VB,
+      MISSING=ON,
+      TITLE='Product Name', $
+    FIELDNAME=PRODUCT_VERSION, ALIAS='Product Version', USAGE=A36V, ACTUAL=A36VB,
+      MISSING=ON,
+      TITLE='Product Version', $
+    FIELDNAME=PRODUCT_AREA, ALIAS='Product Area', USAGE=A138V, ACTUAL=A138VB,
+      MISSING=ON,
+      TITLE='Product Area', $
+    FIELDNAME=DATE_LAST_MODIFIED, ALIAS='Date Last Modified', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Last Modified', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=DATE_LAST_PUBLIC_COMMENT__INBOUND_OR_OUTBOUND_, ALIAS='Date Last Public Comment (inbound or outbound)', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Last Public Comment (inbound or outbound)', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=DATE_LAST_OUTBOUND_PUBLIC_COMMENT, ALIAS='Date Last Outbound Public Comment', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Last Outbound Public Comment', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=DATE_LAST_CUSTOMER_COMMENT, ALIAS='Date Last Customer Comment', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Last Customer Comment', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=DATE_WAITING_FOR_CUSTOMER_SINCE, ALIAS='Date Waiting for Customer Since', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Waiting for Customer Since', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=DATE_ASSIGNED, ALIAS='Date Assigned', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Assigned', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=DATE_CLOSED, ALIAS='Date Closed', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Closed', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=DATE_CLOSED__DATE_, ALIAS='Date Closed (Date)', USAGE=MDYY, ACTUAL=A10V,
+      MISSING=ON,
+      TITLE='Date Closed (Date)', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=REASON, ALIAS=Reason, USAGE=A108V, ACTUAL=A108VB,
+      MISSING=ON,
+      TITLE='Reason', $
+    FIELDNAME=SUB_REASON, ALIAS='Sub Reason', USAGE=A135V, ACTUAL=A135VB,
+      MISSING=ON,
+      TITLE='Sub Reason', $
+    FIELDNAME=HOT_FIX_REQUEST, ALIAS='Hot Fix Request', USAGE=A10V, ACTUAL=A10VB,
+      MISSING=ON,
+      TITLE='Hot Fix Request', $
+    FIELDNAME=TIMES_HOT_FIX_WAS_REJECTED, ALIAS='Times Hot Fix was Rejected', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Times Hot Fix was Rejected', $
+    FIELDNAME=OTHER_PRODUCT_INFO, ALIAS='Other Product Info', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Other Product Info', $
+    FIELDNAME=MARK_FOR_KB_ARTICLE, ALIAS='Mark For KB Article', USAGE=A18V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Mark For KB Article', $
+    FIELDNAME=OS, ALIAS=OS, USAGE=A189V, ACTUAL=A189VB,
+      MISSING=ON,
+      TITLE='OS', $
+    FIELDNAME=HARDWARE, ALIAS=Hardware, USAGE=A48V, ACTUAL=A48VB,
+      MISSING=ON,
+      TITLE='Hardware', $
+    FIELDNAME=ENVIRONMENT_TYPE, ALIAS='Environment Type', USAGE=A39V, ACTUAL=A39VB,
+      MISSING=ON,
+      TITLE='Environment Type', $
+    FIELDNAME=VIRTUALIZED_PLATFORM, ALIAS='Virtualized Platform', USAGE=A54V, ACTUAL=A54VB,
+      MISSING=ON,
+      TITLE='Virtualized Platform', $
+    FIELDNAME=CONTACT_EMAIL, ALIAS='Contact Email', USAGE=A195V, ACTUAL=A195VB,
+      MISSING=ON,
+      TITLE='Contact Email', $
+    FIELDNAME=CONTACT_PHONE, ALIAS='Contact Phone', USAGE=A78V, ACTUAL=A78VB,
+      MISSING=ON,
+      TITLE='Contact Phone', $
+    FIELDNAME=CONTACT_STATE, ALIAS='Contact State', USAGE=A75V, ACTUAL=A75VB,
+      MISSING=ON,
+      TITLE='Contact State',
+      GEOGRAPHIC_ROLE=STATE,  $
+    FIELDNAME=CONTACT_COUNTRY, ALIAS='Contact Country', USAGE=A51V, ACTUAL=A51VB,
+      MISSING=ON,
+      TITLE='Contact Country',
+      GEOGRAPHIC_ROLE=COUNTRY,  $
+    FIELDNAME=CONTACT_TIMEZONE, ALIAS='Contact Timezone', USAGE=A105V, ACTUAL=A105VB,
+      MISSING=ON,
+      TITLE='Contact Timezone', $
+    FIELDNAME=EMAIL_CC_LIST, ALIAS='Email CC List', USAGE=A1626V, ACTUAL=A1626VB,
+      MISSING=ON,
+      TITLE='Email CC List', $
+    FIELDNAME=ACCOUNT_STATE, ALIAS='Account State', USAGE=A75V, ACTUAL=A75VB,
+      MISSING=ON,
+      TITLE='Account State',
+      GEOGRAPHIC_ROLE=STATE,  $
+    FIELDNAME=ACCOUNT_COUNTRY, ALIAS='Account Country', USAGE=A75V, ACTUAL=A75VB,
+      MISSING=ON,
+      TITLE='Account Country',
+      GEOGRAPHIC_ROLE=COUNTRY,  $
+    FIELDNAME=ENTITLEMENT_SUPPORT_LEVEL, ALIAS='Entitlement Support Level', USAGE=A36V, ACTUAL=A36VB,
+      MISSING=ON,
+      TITLE='Entitlement Support Level', $
+    FIELDNAME=ENTITLEMENT_TEXT, ALIAS='Entitlement Text', USAGE=A153V, ACTUAL=A153VB,
+      MISSING=ON,
+      TITLE='Entitlement Text', $
+    FIELDNAME=ENTITLEMENT_STATUS, ALIAS='Entitlement Status', USAGE=A30V, ACTUAL=A30VB,
+      MISSING=ON,
+      TITLE='Entitlement Status', $
+    FIELDNAME=ACCOUNT_MANAGER, ALIAS='Account Manager', USAGE=A50V, ACTUAL=A50VB,
+      MISSING=ON,
+      TITLE='Account Manager', $
+    FIELDNAME=ACCOUNT_AT_RISK, ALIAS='Account At Risk', USAGE=A39V, ACTUAL=A39VB,
+      MISSING=ON,
+      TITLE='Account At Risk', $
+    FIELDNAME=ACCOUNT_TYPE, ALIAS='Account Type', USAGE=A54V, ACTUAL=A54VB,
+      MISSING=ON,
+      TITLE='Account Type', $
+    FIELDNAME=ACCOUNT_ORACLE_ID, ALIAS='Account Oracle ID', USAGE=A50V, ACTUAL=A50V,
+      MISSING=ON,
+      TITLE='Account Oracle ID', $
+    FIELDNAME=INITIAL_RESPONSE_SEVERITY, ALIAS='Initial Response Severity', USAGE=A30V, ACTUAL=A30VB,
+      MISSING=ON,
+      TITLE='Initial Response Severity', $
+    FIELDNAME=MAXIMUM_ATTAINED_SEVERITY, ALIAS='Maximum Attained Severity', USAGE=A30V, ACTUAL=A30VB,
+      MISSING=ON,
+      TITLE='Maximum Attained Severity', $
+    FIELDNAME=INITIAL_RESPONSE_TIME, ALIAS='Initial Response Time', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Initial Response Time', $
+    FIELDNAME=INITIAL_RESPONSE_MINUTES, ALIAS='Initial Response Minutes', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Initial Response Minutes', $
+    FIELDNAME=SLA_MET, ALIAS='SLA Met', USAGE=A9V, ACTUAL=A9VB,
+      MISSING=ON,
+      TITLE='SLA Met', $
+    FIELDNAME=NO_OF_PUBLIC_UPDATES, ALIAS='No of Public Updates', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='No of Public Updates', $
+    FIELDNAME=NO_OF_PRIVATE_UPDATES, ALIAS='No of Private Updates', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='No of Private Updates', $
+    FIELDNAME=NO_OF_LINKED_JIRAS, ALIAS='No of Linked JIRAs', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='No of Linked JIRAs', $
+    FIELDNAME=NO_OF_LINKED_KBAS, ALIAS='No of Linked KBAs', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='No of Linked KBAs', $
+    FIELDNAME=ACTIVE_HOURS, ALIAS='Active Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Active Hours', $
+    FIELDNAME=SUPPORT_HOURS, ALIAS='Support Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Support Hours', $
+    FIELDNAME=OPEN_HOURS, ALIAS='Open Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Open Hours', $
+    FIELDNAME=AWAIT_CUSTOMER_HOURS, ALIAS='Await Customer Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Await Customer Hours', $
+    FIELDNAME=IN_DEV_HOURS, ALIAS='In Dev Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='In Dev Hours', $
+    FIELDNAME=WORKING_WITH_OPS_HOURS, ALIAS='Working with Ops Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Working with Ops Hours', $
+    FIELDNAME=AWAIT_VENDOR_HOURS, ALIAS='Await Vendor Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Await Vendor Hours', $
+    FIELDNAME=AWAIT_VENDOR_FIX_HOURS, ALIAS='Await Vendor Fix Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Await Vendor Fix Hours', $
+    FIELDNAME=AWAIT_HARDWARE_RETURN_HOURS, ALIAS='Await Hardware Return Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Await Hardware Return Hours', $
+    FIELDNAME=DEFECT_ENH_SUBMITTED_HOURS, ALIAS='Defect-Enh Submitted Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Defect-Enh Submitted Hours', $
+    FIELDNAME=PENDING_CLIENT_VERIFICATION_HOURS, ALIAS='Pending Client Verification Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Pending Client Verification Hours', $
+    FIELDNAME=AWAIT_ENHANCEMENT_HOURS, ALIAS='Await Enhancement Hours', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Await Enhancement Hours', $
+    FIELDNAME=AWAIT_DEV_FIX_HOURS, ALIAS='Await Dev Fix Hours', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Await Dev Fix Hours', $
+    FIELDNAME=SEV_1_HOURS, ALIAS='Sev 1 Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Sev 1 Hours', $
+    FIELDNAME=SEV_2_HOURS, ALIAS='Sev 2 Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Sev 2 Hours', $
+    FIELDNAME=SEV_3_HOURS, ALIAS='Sev 3 Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Sev 3 Hours', $
+    FIELDNAME=SEV_4_HOURS, ALIAS='Sev 4 Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Sev 4 Hours', $
+    FIELDNAME=CUSTOMER_REGION, ALIAS='Customer Region', USAGE=A48V, ACTUAL=A48VB,
+      MISSING=ON,
+      TITLE='Customer Region', $
+    FIELDNAME=CASE_ORIGIN, ALIAS='Case Origin', USAGE=A54V, ACTUAL=A54VB,
+      MISSING=ON,
+      TITLE='Case Origin', $
+    FIELDNAME=LEGACY_TSC_ID, ALIAS='Legacy TSC ID', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Legacy TSC ID', $
+    FIELDNAME=CUSTOMER_ESCALATED, ALIAS='Customer Escalated', USAGE=A18V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Customer Escalated', $
+    FIELDNAME=CUSTOMER_ESC_DATE, ALIAS='Customer Esc Date', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Customer Esc Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=CUSTOMER_ESC_SOURCE, ALIAS='Customer Esc Source', USAGE=A45V, ACTUAL=A45VB,
+      MISSING=ON,
+      TITLE='Customer Esc Source', $
+    FIELDNAME=CUSTOMER_ESC_REASON, ALIAS='Customer Esc Reason', USAGE=A99V, ACTUAL=A99VB,
+      MISSING=ON,
+      TITLE='Customer Esc Reason', $
+    FIELDNAME=REPORT_DATE, ALIAS='Report Date', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Report Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=REFERRED_TO_CUSTOMER_SUCCESS, ALIAS='Referred to Customer Success', USAGE=A18V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Referred to Customer Success', $
+    FIELDNAME=ACTIVE_DAYS, ALIAS='Active Days', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Active Days', $
+    FIELDNAME=DATE_PRIORITY_CHANGED, ALIAS='Date Priority Changed', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Date Priority Changed', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=CASE_PRIORITY_RAISED, ALIAS='Case Priority Raised', USAGE=A18V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Case Priority Raised', $
+    FIELDNAME=INITIAL_CASE_PRIORITY, ALIAS='Initial Case Priority', USAGE=A21V, ACTUAL=A21VB,
+      MISSING=ON,
+      TITLE='Initial Case Priority', $
+    FIELDNAME=TYPE_OF_ENGAGEMENT, ALIAS='Type of Engagement', USAGE=A45V, ACTUAL=A45VB,
+      MISSING=ON,
+      TITLE='Type of Engagement', $
+    FIELDNAME=ACTIVE_ESCALATIONS, ALIAS='Active Escalations', USAGE=A18V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Active Escalations', $
+    FIELDNAME=CASE_ESCALATED_IN_THE_PAST, ALIAS='Case Escalated in the Past', USAGE=A18V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Case Escalated in the Past', $

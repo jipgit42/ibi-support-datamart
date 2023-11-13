@@ -1,0 +1,232 @@
+FILENAME=CUSTOMER_SURVEYS_SOURCE, SUFFIX=DFIX    ,
+ CODEPAGE=65001,
+ DATASET=extracts/listen_files/customer_surveys.csv, $
+  SEGMENT=CUSTOMER_SURVEYS_SOURCE, SEGTYPE=S0, $
+    FIELDNAME=SURVEY_NUMBER, ALIAS='Survey Number', USAGE=A50V, ACTUAL=A50VB,
+      MISSING=ON,
+      TITLE='Survey Number', $
+    FIELDNAME=SURVEY_ID, ALIAS='Survey ID', USAGE=A60V, ACTUAL=A60VB,
+      MISSING=ON,
+      TITLE='Survey ID', $
+    FIELDNAME=SURVEY_CREATED_DATE, ALIAS='Survey Created Date', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Survey Created Date', $
+    FIELDNAME=CASE_NUMBER, ALIAS='Case Number', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Case Number', $
+    FIELDNAME=CASE_ID, ALIAS='Case ID', USAGE=A54V, ACTUAL=A54VB,
+      MISSING=ON,
+      TITLE='Case ID', $
+    FIELDNAME=ACCOUNT_NAME, ALIAS='Account Name', USAGE=A255V, ACTUAL=A204VB,
+      MISSING=ON,
+      TITLE='Account Name', $
+    FIELDNAME=CONTACT, ALIAS=Contact, USAGE=A100V, ACTUAL=A78VB,
+      MISSING=ON,
+      TITLE='Contact', $
+    FIELDNAME=PRIMARY_QUEUE, ALIAS='Primary Queue', USAGE=A100V, ACTUAL=A100VB,
+      MISSING=ON,
+      TITLE='Primary Queue', $
+    FIELDNAME=PRODUCT_SUITE, ALIAS='Product Suite', USAGE=A9V, ACTUAL=A9VB,
+      MISSING=ON,
+      TITLE='Product Suite', $
+    FIELDNAME=PRODUCT_NAME, ALIAS='Product Name', USAGE=A100V, ACTUAL=A96VB,
+      MISSING=ON,
+      TITLE='Product Name', $
+    FIELDNAME=PRODUCT_VERSION, ALIAS='Product Version', USAGE=A50V, ACTUAL=A42VB,
+      MISSING=ON,
+      TITLE='Product Version', $
+    FIELDNAME=CASE_OWNER, ALIAS='Case Owner', USAGE=A100V, ACTUAL=A100VB,
+      MISSING=ON,
+      TITLE='Case Owner', $
+    FIELDNAME=CASE_OWNER_MANAGER, ALIAS='Case Owner Manager', USAGE=A100V, ACTUAL=A100VB,
+      MISSING=ON,
+      TITLE='Case Owner Manager', $
+    FIELDNAME=CSAT_OLD, ALIAS=CSAT_Old, USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='CSAT_Old', $
+    FIELDNAME=CASE_OUTCOME_OLD, ALIAS='Case Outcome_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Case Outcome_Old', $
+    FIELDNAME=TIMELINESS_AND_FREQUENCY_OF_UPDATES_OLD, ALIAS='Timeliness and frequency of updates_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Timeliness and frequency of updates_Old', $
+    FIELDNAME=QUALITY_AND_CLARITY_OF_RESPONSES_OLD, ALIAS='Quality and clarity of responses_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Quality and clarity of responses_Old', $
+    FIELDNAME=KNOWLEDGE_AND_EXPERTISE_OLD, ALIAS='Knowledge and expertise_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Knowledge and expertise_Old', $
+    FIELDNAME=PROFESSIONALISM_AND_ATTITUDE_OLD, ALIAS='Professionalism and attitude_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Professionalism and attitude_Old', $
+    FIELDNAME=EASE_OF_CONTACTING_TIBCO_SUPPORT, ALIAS='Ease of contacting TIBCO Support', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Ease of contacting TIBCO Support', $
+    FIELDNAME=RENEWAL_LIKELIHOOD_OLD, ALIAS='Renewal Likelihood_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Renewal Likelihood_Old', $
+    FIELDNAME=SERVICE_QUALITY_VS_OTHERS_OLD, ALIAS='Service Quality vs Others_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Service Quality vs Others_Old', $
+    FIELDNAME=EFFORT_OLD, ALIAS=Effort_Old, USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Effort_Old', $
+    FIELDNAME=NPS, ALIAS=NPS, USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='NPS', $
+    FIELDNAME=CUSTOMER_FEEDBACK_OLD, ALIAS='Customer Feedback_Old', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Customer Feedback_Old', $
+    FIELDNAME=FOLLOW_UP_NEEEDED, ALIAS='Follow Up Neeeded', USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='Follow Up Neeeded', $
+    FIELDNAME=FOLLOW_UP_COMPLETED, ALIAS='Follow Up Completed', USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='Follow Up Completed', $
+    FIELDNAME=FOLLOW_UP_COMPLETED_DATE, ALIAS='Follow Up Completed Date', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Follow Up Completed Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=FOLLOW_UP_OWNER, ALIAS='Follow Up Owner', USAGE=A54V, ACTUAL=A54VB,
+      MISSING=ON,
+      TITLE='Follow Up Owner', $
+    FIELDNAME=FOLLOW_UP_CUSTOMER_RESPONDED, ALIAS='Follow Up Customer Responded', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Follow Up Customer Responded', $
+    FIELDNAME=FOLLOW_UP_COMMENTS, ALIAS='Follow Up Comments', USAGE=A3000V, ACTUAL=A2205VB,
+      MISSING=ON,
+      TITLE='Follow Up Comments', $
+    FIELDNAME=FOLLOW_UP_CAPA, ALIAS='Follow Up CAPA', USAGE=A6V, ACTUAL=A6VB,
+      MISSING=ON,
+      TITLE='Follow Up CAPA', $
+    FIELDNAME=FOLLOW_UP_CORRECTIVE_ACTION, ALIAS='Follow Up Corrective Action', USAGE=A1500V, ACTUAL=A1398VB,
+      MISSING=ON,
+      TITLE='Follow Up Corrective Action', $
+    FIELDNAME=FOLLOW_UP_CORRECTIVE_ACTION_CATEGORY, ALIAS='Follow Up Corrective Action Category', USAGE=A50V, ACTUAL=A39VB,
+      MISSING=ON,
+      TITLE='Follow Up Corrective Action Category', $
+    FIELDNAME=ROOT_CAUSE, ALIAS='Root Cause', USAGE=A255V, ACTUAL=A177VB,
+      MISSING=ON,
+      TITLE='Root Cause', $
+    FIELDNAME=NEGATIVE_FEEDBACK, ALIAS='Negative Feedback', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Negative Feedback', $
+    FIELDNAME=SURVEY_LASTMODIFIEDDATE, ALIAS='Survey LastModifiedDate', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Survey LastModifiedDate', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=CASE_DATE_CREATED, ALIAS='Case Date Created', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Case Date Created', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=CASE_DATE_CLOSED, ALIAS='Case Date Closed', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Case Date Closed', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=CASE_STATUS, ALIAS='Case Status', USAGE=A100V, ACTUAL=A84VB,
+      MISSING=ON,
+      TITLE='Case Status', $
+    FIELDNAME=CASE_MAX_ATTAINED_SEVERITY, ALIAS='Case Max Attained Severity', USAGE=A25V, ACTUAL=A24VB,
+      MISSING=ON,
+      TITLE='Case Max Attained Severity', $
+    FIELDNAME=CASE_PRIORITY, ALIAS='Case Priority', USAGE=A25V, ACTUAL=A18VB,
+      MISSING=ON,
+      TITLE='Case Priority', $
+    FIELDNAME=CASE_SUBJECT, ALIAS='Case Subject', USAGE=A429V, ACTUAL=A429VB,
+      MISSING=ON,
+      TITLE='Case Subject', $
+    FIELDNAME=CUSTOMER_REGION, ALIAS='Customer Region', USAGE=A39V, ACTUAL=A39VB,
+      MISSING=ON,
+      TITLE='Customer Region', $
+    FIELDNAME=CASE_ACTIVE_HOURS, ALIAS='Case Active Hours', USAGE=D33.2, ACTUAL=A64V,
+      MISSING=ON,
+      TITLE='Case Active Hours', $
+    FIELDNAME=RENEWAL_LIKELIHOOD__OLD___DONT_USE_, ALIAS='Renewal Likelihood (old - dont use)', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Renewal Likelihood (old - dont use)', $
+    FIELDNAME=REPORT_DATE, ALIAS='Report Date', USAGE=HMDYYS, ACTUAL=A31V,
+      MISSING=ON,
+      TITLE='Report Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=GF_COMMUNICATION, ALIAS=GF_Communication, USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='GF_Communication', $
+    FIELDNAME=GF_CONTACT, ALIAS=GF_Contact, USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='GF_Contact', $
+    FIELDNAME=GF_CSAT, ALIAS=GF_CSAT, USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='GF_CSAT', $
+    FIELDNAME=GF_CUSTOMER_FEEDBACK, ALIAS=GF_Customer_Feedback, USAGE=A5000V, ACTUAL=A5000VB,
+      MISSING=ON,
+      TITLE='GF_Customer_Feedback', $
+    FIELDNAME=GF_EFFORT, ALIAS=GF_Effort, USAGE=A100V, ACTUAL=A63VB,
+      MISSING=ON,
+      TITLE='GF_Effort', $
+    FIELDNAME=GF_KNOWLEDGE, ALIAS=GF_Knowledge, USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='GF_Knowledge', $
+    FIELDNAME=GF_MULTICHOICE, ALIAS=GF_Multichoice, USAGE=A500V, ACTUAL=A324VB,
+      MISSING=ON,
+      TITLE='GF_Multichoice', $
+    FIELDNAME=GF_OUTCOME, ALIAS=GF_Outcome, USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='GF_Outcome', $
+    FIELDNAME=GF_PROFESSIONALISM, ALIAS=GF_Professionalism, USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='GF_Professionalism', $
+    FIELDNAME=GF_RENEWAL_LIKELIHOOD, ALIAS=GF_Renewal_Likelihood, USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='GF_Renewal_Likelihood', $
+    FIELDNAME=GF_RENEWAL_LIKELIHOOD_TEXT, ALIAS=GF_Renewal_Likelihood_Text, USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='GF_Renewal_Likelihood_Text', $
+    FIELDNAME=GF_RESPONSIVENESS, ALIAS=GF_Responsiveness, USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='GF_Responsiveness', $
+    FIELDNAME=GF_SERVICE_QUALITY, ALIAS=GF_Service_Quality, USAGE=A50V, ACTUAL=A42VB,
+      MISSING=ON,
+      TITLE='GF_Service_Quality', $
+    FIELDNAME=CASE_OUTCOME, ALIAS='Case Outcome', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Case Outcome', $
+    FIELDNAME=CSAT__, ALIAS='CSAT #', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='CSAT #', $
+    FIELDNAME=CUSTOMER_FEEDBACK, ALIAS='Customer Feedback', USAGE=A3500V, ACTUAL=A3474VB,
+      MISSING=ON,
+      TITLE='Customer Feedback', $
+    FIELDNAME=SUPPORT_MADE_IT_EASY__, ALIAS='Support made it easy #', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Support made it easy #', $
+    FIELDNAME=KNOWLEDGE_AND_EXPERTISE, ALIAS='Knowledge and expertise', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Knowledge and expertise', $
+    FIELDNAME=PROFESSIONALISM_AND_ATTITUDE, ALIAS='Professionalism and attitude', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Professionalism and attitude', $
+    FIELDNAME=QUALITY_AND_CLARITY_OF_RESPONSES, ALIAS='Quality and clarity of responses', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Quality and clarity of responses', $
+    FIELDNAME=RENEWAL_LIKELIHOOD, ALIAS='Renewal Likelihood', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Renewal Likelihood', $
+    FIELDNAME=SERVICE_QUALITY_VS_OTHERS__, ALIAS='Service Quality vs Others #', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Service Quality vs Others #', $
+    FIELDNAME=TIMELINESS_AND_FREQUENCY_OF_UPDATES, ALIAS='Timeliness and frequency of updates', USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Timeliness and frequency of updates', $
+    FIELDNAME=CSAT, ALIAS=CSAT, USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='CSAT', $
+    FIELDNAME=SUPPORT_MADE_IT_EASY, ALIAS='Support made it easy', USAGE=A100V, ACTUAL=A100VB,
+      MISSING=ON,
+      TITLE='Support made it easy', $
+    FIELDNAME=SERVICE_QUALITY_VS_OTHERS, ALIAS='Service Quality vs Others', USAGE=A50V, ACTUAL=A50VB,
+      MISSING=ON,
+      TITLE='Service Quality vs Others', $
+    FIELDNAME=GF_OTHER, ALIAS=GF_Other, USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='GF_Other', $
+    FIELDNAME=SURVEY_TYPE, ALIAS='Survey Type', USAGE=A50V, ACTUAL=A50VB,
+      MISSING=ON,
+      TITLE='Survey Type', $
+    FIELDNAME=PORTAL_SURVEY, ALIAS='Portal Survey', USAGE=A15V, ACTUAL=A15VB,
+      MISSING=ON,
+      TITLE='Portal Survey', $

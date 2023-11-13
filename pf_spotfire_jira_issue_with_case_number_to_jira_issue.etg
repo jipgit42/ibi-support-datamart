@@ -1,0 +1,11 @@
+[Version Information]
+Flow Version = 5
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,430,159,478,207,0,0
+DataFlowChildWindow(src:jira_issue_with_case_number:t1) = 0,129,72,177,120,0,0
+DataFlowChildWindow(trg:jira_issue:1) = 0,737,73,785,121,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 106,46
+Coord(Item,DEP_MAIN) = 365,50
+Coord(Item,DEP_0) = 227,40
+Coord(Item,DEP_1) = 525,31

@@ -1,0 +1,9 @@
+[Version Information]
+Flow Version = 8
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,250,200,298,248,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 32,59
+Coord(Item,DEP_0) = 243,61
+Coord(Item,DEP_1) = 449,63
+Coord(Item,DEP_2) = 656,63

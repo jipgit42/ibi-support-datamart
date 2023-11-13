@@ -1,0 +1,30 @@
+FILENAME=ROYALTYDETAILS_STLUKES, SUFFIX=DFIX    ,
+ CODEPAGE=1252,
+ DATASET=extracts/royalty/StLukes.csv,
+ REMARKS='Synonym for Delimited Flat File with parameters: DELIMITER=,, HEADER=YES, ENCLOSURE=", CDN=COMMAS_DOT', $
+  SEGMENT=ROYALTYDETAILS_STLUKES, SEGTYPE=S0, $
+    FIELDNAME=PERIOD, ALIAS=Period, USAGE=A8V, ACTUAL=A8VB,
+      MISSING=ON,
+      TITLE='Period', $
+    FIELDNAME=CUSTOMER_NAME, ALIAS='Customer Name', USAGE=A24V, ACTUAL=A24VB,
+      MISSING=ON,
+      TITLE='Customer Name', $
+    FIELDNAME=PRODUCT, ALIAS=Product, USAGE=A27V, ACTUAL=A27VB,
+      MISSING=ON,
+      TITLE='Product', $
+    FIELDNAME=END_DATE, ALIAS='End Date', USAGE=MDYY, ACTUAL=A10V,
+      MISSING=ON,
+      TITLE='End Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=FEE, ALIAS=Fee, USAGE=I11, ACTUAL=A11V,
+      MISSING=ON,
+      TITLE='Fee', $
+    FIELDNAME=RENEWAL_TARGET_DATE, ALIAS='Renewal Target Date', USAGE=MDYY, ACTUAL=A10V,
+      MISSING=ON,
+      TITLE='Renewal Target Date', DATEPATTERN='[mm]/[dd]/[YYYY]', $
+    FIELDNAME=RENEWAL_TYPE, ALIAS='Renewal Type', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Renewal Type', $
+    FIELDNAME=RENEWAL_STATUS, ALIAS='Renewal Status', USAGE=A1V, ACTUAL=A1VB,
+      MISSING=ON,
+      TITLE='Renewal Status', $
+    COMPUTE oem_vendor/A20='stlukes';, $

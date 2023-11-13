@@ -1,0 +1,27 @@
+FILENAME=omni_royalites, SUFFIX=SQLPSTGR, $                                     
+  SEGMENT=OMNI_ROYALITES, SEGTYPE=S0, $                                         
+    FIELDNAME=PERIOD, ALIAS=PERIOD, USAGE=A6V, ACTUAL=A6V,                      
+      MISSING=ON,                                                               
+      TITLE='Period', $                                                         
+    FIELDNAME=CUSTOMER_NAME, ALIAS=CUSTOMER_NAME, USAGE=A46V, ACTUAL=A46V,      
+      MISSING=ON,                                                               
+      TITLE='Customer Name', $                                                  
+    FIELDNAME=PRODUCT, ALIAS=PRODUCT, USAGE=A48V, ACTUAL=A48V,                  
+      MISSING=ON,                                                               
+      TITLE='Product', $                                                        
+    FIELDNAME=END_DATE, ALIAS=END_DATE, USAGE=MDYY, ACTUAL=DATE,                
+      MISSING=ON,                                                               
+      TITLE='End Date', $                                                       
+    FIELDNAME=FEE, ALIAS=FEE, USAGE=D33.2, ACTUAL=D8,                           
+      MISSING=ON,                                                               
+      TITLE='Fee', $                                                            
+    FIELDNAME=RENEWAL_TARGET_DATE, ALIAS=RENEWAL_TARGET_DATE, USAGE=MDYY, ACTUAL=DATE, 
+      MISSING=ON,                                                               
+      TITLE='Renewal Target Date', $                                            
+    FIELDNAME=RENEWAL_TYPE, ALIAS=RENEWAL_TYPE, USAGE=A12V, ACTUAL=A12V,        
+      MISSING=ON,                                                               
+      TITLE='Renewal Type', $                                                   
+    FIELDNAME=RENEWAL_STATUS, ALIAS=RENEWAL_STATUS, USAGE=A4V, ACTUAL=A4V,      
+      MISSING=ON,                                                               
+      TITLE='Renewal Status', $                                                 
+    FIELDNAME=oem_vendor, ALIAS=oem_vendor, USAGE=A20, ACTUAL=A20, $            

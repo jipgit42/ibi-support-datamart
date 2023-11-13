@@ -1,0 +1,146 @@
+-*DM_JOB_TYPE=1 
+-*DM_USERID=PTH\srvadmin 
+-*DM_CLIENT_RELEASE_GEN=R728728D_2142 
+-*DM_SERVER_RELEASE_GEN=R728728D_2142 
+ 
+-*************************************************** 
+ 
+-:START_PRC 
+SET PANEL=9999 
+SET MORE=OFF 
+SET 2PARTNAME=ON 
+-RUN 
+ 
+-*[Variables to Control Request] 
+-SET &&CM__TARGET = 'jira_issue_newest'; 
+-SET &&CM__AUTHOR = 'PTH\srvadmin'; 
+-SET &&CM__REQUEST = '&FOCFEXNAME.EVAL'; 
+-SET &&CM__RETURN = 0; 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL; 
+-SET &&KILL_RPC = 'N'; 
+-TYPE  (ICM18122) Request - &FOCFEXNAME (Owner: PTH\srvadmin) submitted. 
+-GOTO :DEP_0; 
+ 
+-:DEP_MAIN 
+-TYPE  (ICM18742) jira_issue_newest type PostgreSQL Existing target 
+-IF (&SQLAPT NE 'APT') GOTO :SKIPCOMM; 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+-:SKIPCOMM 
+SQL TRUNCATE TABLE jira_issue_newest 
+END 
+-RUN 
+-SET &&CM__RETURN = &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+-RUN 
+ 
+-TYPE  (ICM18701) Insert Records From Memory. INSERTSIZE = 1000 
+SQL SQLPSTGR SET INSERTSIZE 1000; 
+END 
+ENGINE SQLPSTGR SET BULKLOAD OFF 
+-TYPE  (ICM18743) Starting Load 
+ 
+SQL SET UPCASE=OFF; END 
+SQL 
+SELECT 
+   T1.CASE_NUMBER , 
+   T1.JIRA_ID , 
+   T1.JIRA_ASSIGNEE , 
+   T1.JIRA_TYPE , 
+   MAX(T1.JIRA_CREATED_DATE ) , 
+   T1.JIRA_FIX_VERSION , 
+   T1.JIRA_PRIORITY , 
+   T1.JIRA_RESOLUTION , 
+   T1.JIRA_SEVERITY , 
+   T1.JIRA_UPDATED_DATE , 
+   T1.JIRA_STATUS 
+FROM 
+   jira_issue_newest_datrec T1 
+ GROUP BY 
+   T1.CASE_NUMBER , 
+   T1.JIRA_ID , 
+   T1.JIRA_ASSIGNEE , 
+   T1.JIRA_TYPE , 
+   T1.JIRA_FIX_VERSION , 
+   T1.JIRA_PRIORITY , 
+   T1.JIRA_RESOLUTION , 
+   T1.JIRA_SEVERITY , 
+   T1.JIRA_UPDATED_DATE , 
+   T1.JIRA_STATUS 
+; 
+ 
+TABLE 
+ON TABLE MERGE INTO FILE jira_issue_newest 
+ INSERT 
+  CASE_NUMBER=SRC.E01; 
+  JIRA_ID=SRC.E02; 
+  JIRA_ASSIGNEE=SRC.E03; 
+  JIRA_TYPE=SRC.E04; 
+  JIRA_CREATED_DATE=SRC.E05; 
+  JIRA_FIX_VERSION=SRC.E06; 
+  JIRA_PRIORITY=SRC.E07; 
+  JIRA_RESOLUTION=SRC.E08; 
+  JIRA_SEVERITY=SRC.E09; 
+  JIRA_UPDATED_DATE=SRC.E10; 
+  JIRA_STATUS=SRC.E11; 
+END 
+-RUN 
+ 
+-TYPE  (ICM18744) Ending Load 
+-RUN 
+-SET &&CM__RETURN = IF &FOCERRNUM EQ 14104 THEN 0 ELSE &FOCERRNUM; 
+-IF (&&CM__RETURN NE 0) GOTO :ENDJOB; 
+ 
+-IF (&SQLAPT EQ 'APT') GOTO :SKIPHOLD; 
+ 
+-TYPE  (ICM18440) Request will process data via NON-Pass Through (NON-APT) 
+ 
+-:SKIPHOLD 
+ 
+ 
+-:ENDJOB 
+-TYPE  (ICM18040) Return Code = &&CM__RETURN 
+ 
+SQL SET UPCASE=ON; END 
+SQL SQLPSTGR 
+COMMIT WORK; 
+END 
+-RUN 
+ 
+-TYPE  (ICM18076) Request: &FOCFEXNAME - finished processing 
+ 
+-SET &&CM__FOCCPU = &FOCCPU.EVAL - &&CM__FOCCPU; 
+-TYPE  (ICM18007) CPU Time : &&CM__FOCCPU 
+ 
+-*[Main Condition] 
+-GOTO :ENDDEP 
+-*[Main End] 
+ 
+-*[Dependence] 
+-:DEP_0 
+-TYPE  (ICM18015) DEP_0: procedure extract_jira_issue_newest started. 
+ EX extracts/extract_jira_issue_newest 
+-RUN 
+-IF (&&KILL_RPC EQ 'Y') GOTO :STOPRPCS; 
+-SET &RET_CODE = IF &&CM__RETURN EQ 0 THEN &FOCERRNUM ELSE &&CM__RETURN; 
+-TYPE  (ICM18039) DEP_0 extract_jira_issue_newest Return Code = &RET_CODE 
+-IF (&FOCERRNUM EQ 0) GOTO :DEP_MAIN; 
+-GOTO :ENDDEP 
+ 
+-:ENDDEP 
+-EXIT 
+ 
+-:STOPRPCS 
+-TYPE  (ICM18094) User termination via KILL_RPC flag 
+ 
+END 
+-RUN 
+SET PANEL=0 
+SET MORE=ON 
+SET 2PARTNAME=OFF 
+-RUN 

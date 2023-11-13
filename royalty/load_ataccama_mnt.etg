@@ -1,0 +1,9 @@
+[Version Information]
+Flow Version = 1
+[DataFlow SourceTargetView]
+DataFlowChildWindow(sql) = 0,439,238,487,286,0,0
+DataFlowChildWindow(src:ataccama_mnt:t1) = 0,181,245,229,293,0,0
+DataFlowChildWindow(trg:omni_royalites:1) = 0,634,231,682,279,0,0
+[Dependency View]
+Coord(Item,START_PRC) = 30,30
+Coord(Item,DEP_MAIN) = 240,30
